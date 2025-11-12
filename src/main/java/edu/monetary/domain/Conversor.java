@@ -29,16 +29,16 @@ public class Conversor {
 
         Double destinyRate = getDestinyRate(jsonString);
         
-        return data.getOriginAmount().multiply(BigDecimal.valueOf(destinyRate));
+        return data.getAmount().multiply(BigDecimal.valueOf(destinyRate));
     }
 
     private String getExchangeRates() throws IOException, InterruptedException {
         
-        String url = "https://v6.exchangerate-api.com/v6/d54da88011b125f86a17d107/latest/USD";
+        String url = "https://v6.exchangerate-api.com/v6/d54da88011b125f86a17d107/pair/" + data.getBaseCode() + "/" + data.getTargetCode();
         
         HttpClient client = HttpClient.newBuilder().build();
         
-        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).build();
+        HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).GET().build();
         
         return client.send(request, HttpResponse.BodyHandlers.ofString()).body();
         
@@ -47,10 +47,9 @@ public class Conversor {
     private Double getDestinyRate(String jsonString) throws JsonProcessingException, JsonMappingException {
         JsonNode tree = mapper.readTree(jsonString);
 
-        JsonNode conversionRates = tree.get("conversion_rates");
-
-        Double destinyRate = conversionRates.get(data.getDestinyCode()).asDouble();
-        return destinyRate;
+        Double conversionRate = tree.get("conversion_rate").asDouble();
+        
+        return conversionRate;
     }
 
 }

@@ -3,36 +3,29 @@ package edu.monetary.domain;
 import java.math.BigDecimal;
 
 public class ConversionData{
-    BigDecimal originAmount; String originCode; String destinyCode;
+
+    private BigDecimal amount; 
+    private String baseCode; 
+    private String targetCode;
 
 
-    public BigDecimal getOriginAmount() {
-        return originAmount;
+    public ConversionData(BigDecimal amount, String baseCode, String targetCode) {
+        this.amount = amount;
+        this.baseCode = baseCode;
+        this.targetCode = targetCode;
     }
 
-    public String getOriginCode() {
-        return originCode;
+    public BigDecimal getAmount() {
+        return amount;
     }
 
-
-    public String getDestinyCode() {
-        return destinyCode;
-    }
-
-
-    public void setOriginAmount(BigDecimal originAmount) {
-        this.originAmount = originAmount;
-    }
-
-
-    public void setOriginCode(String originCode) {
-        this.originCode = originCode;
+    public String getBaseCode() {
+        return baseCode;
     }
 
 
-    public void setDestinyCode(String destinyCode) {
-        this.destinyCode = destinyCode;
+    public String getTargetCode() {
+        return targetCode;
     }
-
     
 }
