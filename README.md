@@ -5,7 +5,7 @@
 
 ## 📖 Descrição
 
-**Cash Converter** é uma aplicação de console (CLI) desenvolvida em Java que permite a conversão de valores monetários entre diversas moedas de forma rápida e eficiente. Este projeto faz parte dos estudos do curso de backend da Alura.
+**Currency Converter** é uma aplicação de console (CLI) desenvolvida em Java que permite a conversão de valores monetários entre diversas moedas de forma rápida e eficiente. Este projeto faz parte dos estudos do curso de backend da Alura.
 
 ## ✨ Funcionalidades
 
@@ -35,7 +35,7 @@ git clone https://github.com/seu-usuario/cash-converter.git
 
 1.  Navegue até o diretório do projeto:
     ```bash
-    cd cash-converter
+    cd currency-converter
     ```
 2.  Compile os arquivos Java:
     ```bash
