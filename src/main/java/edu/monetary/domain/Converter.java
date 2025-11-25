@@ -59,8 +59,13 @@ public class Converter {
     private String getExchangeRates() throws IOException, InterruptedException, IllegalStateException {
 
         String apiKey = getApiKey();
-
-        String url = "https://v6.exchangerate-api.com/v6/" + apiKey + "/pair/" + data.getBaseCode() + "/" + data.getTargetCode();
+ 
+        String url = new StringBuilder("https://v6.exchangerate-api.com/v6/")
+                .append(apiKey)
+                .append("/pair/") 
+                .append(data.getBaseCode() + "/")
+                .append(data.getTargetCode())
+                .toString();
 
         HttpClient client = HttpClient.newBuilder().build();
 
