@@ -83,7 +83,7 @@ public class Converter {
         String apiKey = reader.lines()
                 .filter(line -> line.startsWith("exchange.rate.api.key="))
                 .map(line -> line.split("=")[1])
-                .map(api -> api.replace("\"", "").trim())
+                // .map(api -> api.replace("\"", "").trim())
                 .findFirst()
                 .orElse(null);
 
