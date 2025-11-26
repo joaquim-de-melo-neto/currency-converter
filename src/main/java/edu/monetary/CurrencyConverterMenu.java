@@ -241,7 +241,7 @@ public class CurrencyConverterMenu {
             } else {
                 System.err.println("❌ Erro: Código de moeda '" + code + "' não encontrado. Tente novamente ou digite 'S' para ver a lista.");
                 // Permite ver a lista caso o usuário erre o código e precise de ajuda
-                System.out.print("\nInsira o código da moeda " + prompt + " ");
+                // System.out.print("\nInsira o código da moeda " + prompt + " ");
                 code = scanner.nextLine().trim().toUpperCase();
                 if (code.equals("S")) {
                      displayCurrencyList();

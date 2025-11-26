@@ -1,4 +1,4 @@
-package edu.monetary.domain;
+package edu.monetary.service;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,19 +17,21 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import edu.monetary.domain.ConversionData;
+
 /**
  * Converter class responsible for currency conversion using an external API.
  * It fetches exchange rates and calculates the converted amount.
  * @author Joaquim Neto
  * @version 1.0
  */
-public class Converter {
+public class ExchangeConverter {
 
     private ConversionData data;
 
     private ObjectMapper mapper;
 
-    public Converter(ConversionData data) {
+    public ExchangeConverter(ConversionData data) {
         this.data = data;
         this.mapper = new ObjectMapper();
     }
@@ -41,7 +43,8 @@ public class Converter {
      * @throws IOException if an I/O error occurs when sending or receiving.
      * @throws InterruptedException if the operation is interrupted.
      */
-    public BigDecimal calculate() throws IOException, InterruptedException {
+    public BigDecimal convert() throws IOException, InterruptedException {
+
         String jsonString = this.getExchangeRates();
 
         Double destinyRate = getDestinyRate(jsonString);
