@@ -6,7 +6,7 @@ import java.math.RoundingMode;
 import com.fasterxml.jackson.core.JsonProcessingException;
 
 import edu.monetary.domain.ConversionData;
-import edu.monetary.domain.Converter;
+import edu.monetary.service.ExchangeConverter;
 
 /**
  * Main application class for the Currency Converter.
@@ -20,11 +20,11 @@ public class CurrencyConverterApplication {
 
 		ConversionData data = new CurrencyConverterMenu().render();
 
-		Converter conversor = new Converter(data);
+		ExchangeConverter conversor = new ExchangeConverter(data);
 		
 		try {
 
-			BigDecimal montanteFinal = conversor.calculate();
+			BigDecimal montanteFinal = conversor.convert();
 			System.out.printf("\n🤑 -> Valor convertido: %s %s equivalem a %s %s.\n\n", data.getBaseCode(), data.getAmount().setScale(2,RoundingMode.DOWN).toPlainString(), data.getTargetCode() , montanteFinal.setScale(2, RoundingMode.DOWN).toPlainString());
 		
 		} catch (InterruptedException ie) {

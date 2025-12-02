@@ -191,14 +191,6 @@ public class CurrencyConverterMenu {
     public ConversionData render() {
         Scanner scanner = new Scanner(System.in);
 
-        String banner = " ______     __  __     ______     ______     ______     __   __     ______     __  __        ______     ______     __   __     __   __   ______     ______     ______   ______     ______    \n" + //
-                        "/\\  ___\\   /\\ \\/\\ \\   /\\  == \\   /\\  == \\   /\\  ___\\   /\\ \"-.\\ \\   /\\  ___\\   /\\ \\_\\ \\      /\\  ___\\   /\\  __ \\   /\\ \"-.\\ \\   /\\ \\ / /  /\\  ___\\   /\\  == \\   /\\__  _\\ /\\  ___\\   /\\  == \\   \n" + //
-                        "\\ \\ \\____  \\ \\ \\_\\ \\  \\ \\  __<   \\ \\  __<   \\ \\  __\\   \\ \\ \\-.  \\  \\ \\ \\____  \\ \\____ \\     \\ \\ \\____  \\ \\ \\/\\ \\  \\ \\ \\-.  \\  \\ \\ \\'/   \\ \\  __\\   \\ \\  __<   \\/_/\\ \\/ \\ \\  __\\   \\ \\  __<   \n" + //
-                        " \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\ \\_\\ \\_\\  \\ \\_____\\  \\ \\_\\\\\"\\_\\  \\ \\_____\\  \\/\\_____\\     \\ \\_____\\  \\ \\_____\\  \\ \\_\\\\\"\\_\\  \\ \\__|    \\ \\_____\\  \\ \\_\\ \\_\\    \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\ \n" + //
-                        "  \\/_____/   \\/_____/   \\/_/ /_/   \\/_/ /_/   \\/_____/   \\/_/ \\/_/   \\/_____/   \\/_____/      \\/_____/   \\/_____/   \\/_/ \\/_/   \\/_/      \\/_____/   \\/_/ /_/     \\/_/   \\/_____/   \\/_/ /_/ \n" + //
-                        "                                                                                                                                                                                             ";
-        
-        System.out.println(banner);
         System.out.println("=================================================");
         System.out.println("  CONVERSOR DE MOEDAS - SELEÇÃO DE CÓDIGOS");
         System.out.println("=================================================");
@@ -249,7 +241,7 @@ public class CurrencyConverterMenu {
             } else {
                 System.err.println("❌ Erro: Código de moeda '" + code + "' não encontrado. Tente novamente ou digite 'S' para ver a lista.");
                 // Permite ver a lista caso o usuário erre o código e precise de ajuda
-                System.out.print("\nInsira o código da moeda " + prompt + " ");
+                // System.out.print("\nInsira o código da moeda " + prompt + " ");
                 code = scanner.nextLine().trim().toUpperCase();
                 if (code.equals("S")) {
                      displayCurrencyList();
